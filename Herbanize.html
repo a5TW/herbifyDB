@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HerbifyDB - Plant Care App</title>
+
+  <!-- Google Font: Open Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Global Styles */
+    body, h1, h2, h3, h4, p, a, button, textarea {
+      font-family: 'Open Sans', sans-serif !important;
+    }
+
+    body {
+      background-color: #fafbfc;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    /* Header Styles */
+    header {
+      background-color: #24292f;
+      padding: 20px;
+      color: white;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 36px;
+    }
+
+    /* Navigation Bar Styles */
+    nav {
+      background-color: #24292f;
+      padding: 10px 0;
+      margin: 0;
+      color: white;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Main Content Styling */
+    section {
+      padding: 40px;
+      margin: 40px 0;
+    }
+
+    h2, h3 {
+      font-size: 30px;
+    }
+
+    /* AI Section */
+    #ai-section {
+      background-color: #f6f8fa;
+      border-radius: 10px;
+      padding: 40px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .ai-tab {
+      margin: 20px;
+    }
+
+    textarea {
+      width: 70%;
+      height: 100px;
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #28a745;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    /* Plant Images */
+    .plant-images {
+      display: flex;
+      justify-content: space-evenly;
+      margin-top: 40px;
+    }
+
+    .plant-image-container {
+      width: 30%;
+    }
+
+    .plant-image {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    /* Download Section */
+    #download-section {
+      background-color: #24292f;
+      color: white;
+      padding: 40px;
+      border-radius: 5px;
+    }
+
+    #download-section h2 {
+      font-size: 30px;
+    }
+
+    .download-button {
+      background-color: #28a745;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      font-size: 18px;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .download-button:hover {
+      background-color: #218838;
+    }
+
+    /* Responsive Layout */
+    @media (max-width: 768px) {
+      .plant-images {
+        flex-direction: column;
+      }
+
+      .plant-image-container {
+        width: 80%;
+        margin-bottom: 20px;
+      }
+
+      textarea {
+        width: 90%;
+      }
+
+      button {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <h1>HerbifyDB - Your Ultimate Plant Care App</h1>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="#intro-section">Home</a>
+    <a href="#ai-section">AI Help</a>
+    <a href="#download-section">Download</a>
+  </nav>
+
+  <!-- Introduction Section -->
+  <section id="intro-section">
+    <h2>Welcome to HerbifyDB</h2>
+    <p>HerbifyDB is an all-in-one plant care app. Whether you're a seasoned gardener or a beginner, our app helps you identify plants, gives care instructions, schedules watering and fertilization, and even answers your plant-related questions through AI.</p>
+    <p>Our database contains over 200 plant species, and our AI can give you personalized advice based on your plant queries.</p>
+  </section>
+
+  <!-- AI Help Section -->
+  <section id="ai-section">
+    <h2>AI Help - Ask Anything About Plants!</h2>
+    <div class="ai-tab">
+      <h3>Type your question below and get plant care advice:</h3>
+      <textarea id="user-query" placeholder="Type your question here..."></textarea>
+      <button onclick="getAIResponse()">Get Answer</button>
+    </div>
+
+    <div id="ai-response" class="ai-response"></div>
+
+    <!-- Plant Images Section -->
+    <h2>Popular Plants</h2>
+    <div class="plant-images">
+      <div class="plant-image-container">
+        <img src="https://via.placeholder.com/300x200?text=Plant+1" alt="Plant 1" class="plant-image">
+        <h4>Plant 1</h4>
+      </div>
+      <div class="plant-image-container">
+        <img src="https://via.placeholder.com/300x200?text=Plant+2" alt="Plant 2" class="plant-image">
+        <h4>Plant 2</h4>
+      </div>
+      <div class="plant-image-container">
+        <img src="https://via.placeholder.com/300x200?text=Plant+3" alt="Plant 3" class="plant-image">
+        <h4>Plant 3</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download Section -->
+  <section id="download-section">
+    <h2>Download HerbifyDB</h2>
+    <p>Ready to take your plant care to the next level? Download HerbifyDB today and get started on your plant journey.</p>
+    <a href="https://github.com/a5TW/herbifyDB" class="download-button" target="_blank">Download on GitHub</a>
+  </section>
+
+  <script>
+    function getAIResponse() {
+      const userQuery = document.getElementById('user-query').value;
+      const aiResponse = document.getElementById('ai-response');
+      
+      if (!userQuery) {
+        aiResponse.innerHTML = "Please type a question!";
+        return;
+      }
+      
+      aiResponse.innerHTML = "Fetching answer... Please wait.";
+      
+      setTimeout(() => {
+        aiResponse.innerHTML = `
+          <h4>AI Response:</h4>
+          <p><strong>Question:</strong> ${userQuery}</p>
+          <p><strong>Answer:</strong> Based on your question, we recommend regular watering and indirect sunlight for your plants.</p>
+        `;
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
+
